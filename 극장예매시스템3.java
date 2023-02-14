@@ -86,7 +86,6 @@ public class 극장예매시스템3 {
 			
 		} // for
 		
-
 		// 여백
 		JLabel empty = new JLabel("", JLabel.CENTER);
 		empty.setPreferredSize(new Dimension(1000, 50));
@@ -101,27 +100,30 @@ public class 극장예매시스템3 {
 			public void actionPerformed(ActionEvent e) {
 				int count1 = 0; // 0~59번 좌석 카운트
 				int count2 = 0; // 60~99번 좌석 카운트
+				int normal = 0;
+				int premium = 0;
 				String seatNo = "";
-				for (int i = 0; i < 60; i++) { // i가 0~ 59일 때
-					if (rev[i] == 1) {
-						count1++;
-						seatNo = seatNo + " " + i;
-					}
-					
-				} // for
-				for (int i = 60; i < btn.length; i++) {
-					if (rev[i] == 1) {
-						count2++;
-						seatNo = seatNo + " " + i;
-					}
-					
+				for (int i = 0; i < btn.length; i++) {
+					if (i < 60) { // i가 0~59인 경우
+						if (rev[i] == 1) { // 클릭되었다면
+							count1++; // 카운트1에 1추가
+							seatNo = seatNo + " " + i;
+							normal = 8000;
+						}  // 0~59 if
+					} else { // i가 0~59가 아닌 경우
+						if (rev[i] == 1) { // 클릭되었다면
+							count2++; // 카운트2에 1추가
+							seatNo = seatNo + " " + i;
+							premium = 10000;
+						} // 60~99 if
+					} // else
 				} // for
 				
-				int normal = count1 * 8000;
-				int premium = count2 * 10000;
+				int normal2 = count1 * normal;
+				int premium2 = count2 * premium;
 				
 				JOptionPane.showMessageDialog(f, "예약 좌석" + seatNo + "번");
-				int result = JOptionPane.showConfirmDialog(f, "총 결제금액: " + (normal + premium) + "원\n 결제하시겠습니까?");
+				int result = JOptionPane.showConfirmDialog(f, "총 결제금액: " + (normal2 + premium2) + "원\n 결제하시겠습니까?");
 				if (result == JOptionPane.YES_OPTION ) {
 					JOptionPane.showMessageDialog(f, "결제 성공!");
 				} else if (result == JOptionPane.NO_OPTION) {
