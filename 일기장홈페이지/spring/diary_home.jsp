@@ -8,26 +8,19 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>
-	body {
-		position: relative;
+	html, body {
 		font-family: 'Gowun Dodum', sans-serif;
 		background: #f2f2f2;
-	}
-	.main {
-		width: 100%;
 		height: 100%;
-		position: absolute;
-		margin-top: 12%;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
-	.header {
+	#wrap {
 		text-align: center;
-	}
-	.content {
-		text-align: center;
-	}
-	table {
-		margin-left: auto;
-		margin-right: auto;
+		min-height: 400px;
 	}
 	input {
 		width: 250px;
@@ -72,13 +65,13 @@
 </style>
 </head>
 <body>
-<div class = "main">
-	<div class = "header">
+<div id = "wrap">
+	<div id = "header">
 		<p class = "imoji">&#128512;</p>
 		<h2>나만의 일기장</h2>
-		<hr width="50%">
+		<hr>
 	</div>
-	<div class ="content">
+	<div id ="content">
 	<form action = "login" method="get">
 	<table>
 		<tr>
@@ -104,7 +97,6 @@
 			<a href = "pwSearch.jsp">비밀번호 찾기</a>
 		</div>
 	</div>
-	<div id = "loginResult"></div>
 </div>
 </body>
 </html>
