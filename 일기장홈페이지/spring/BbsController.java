@@ -53,7 +53,7 @@ public class BbsController {
 //		model.addAttribute("list", list);
 	}
 	
-	@RequestMapping("diary_bbs")
+	@RequestMapping("diary_bbs_list")
 	public void bbs_list(Model model, HttpSession session) {
 			System.out.println("list검색 요청됨");
 			String writer = (String)session.getAttribute("name");
