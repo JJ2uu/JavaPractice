@@ -20,6 +20,21 @@ public class BbsController {
 //	@Autowired
 //	ReplyDAO dao2;
 	
+	@RequestMapping("diary_bbs_insert")
+	public String bbs_insert(BbsVO bag, HttpSession session) {
+		String writer = (String)session.getAttribute("id");
+		bag.setWriter(writer);
+		System.out.println("insert 요청됨");
+		System.out.println(bag);
+		dao.insert(bag);
+		return "diary_bbs";
+	}
+	
+	@RequestMapping("diary_bbs")
+	public String bbs() {
+		return "diary_bbs";
+	}
+	
 	@RequestMapping("insert2.multi")
 	public void bbs_insert(BbsVO bag) {
 		System.out.println("insert 요청됨");
